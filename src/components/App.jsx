@@ -11,6 +11,8 @@ const App = () => {
     bad: 0,
   });
 
+  const { good, neutral, bad } = state;
+
   const handleClick = name => {
     return setState(prevState => ({
       ...prevState,
@@ -19,12 +21,10 @@ const App = () => {
   };
 
   const countTotalFeedback = () => {
-    const { good, neutral, bad } = state;
     return good + neutral + bad;
   };
 
   const countPositiveFeedbackPercentage = () => {
-    // const { good, neutral, bad } = state;
     if (!good) {
       return 0;
     }
@@ -33,7 +33,6 @@ const App = () => {
     return Math.round(result);
   };
 
-  const { good, neutral, bad } = state;
   return (
     <>
       <Section title="Please leave feedback">
